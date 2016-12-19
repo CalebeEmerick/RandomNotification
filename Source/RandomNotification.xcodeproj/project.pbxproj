@@ -20,6 +20,8 @@
 		34C4B4F31E08593100536AB7 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C4B4F21E08593100536AB7 /* HomeDelegate.swift */; };
 		34C4B4F61E0877E000536AB7 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C4B4F51E0877E000536AB7 /* NotificationView.xib */; };
 		34C4B4F81E0879D100536AB7 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C4B4F71E0879D100536AB7 /* NotificationView.swift */; };
+		34C4B4FB1E087CD800536AB7 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C4B4FA1E087CD800536AB7 /* Color.swift */; };
+		34C4B4FD1E087CFA00536AB7 /* ViewCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C4B4FC1E087CFA00536AB7 /* ViewCreatable.swift */; };
 		34DA41E61E08414100E64D77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA41E51E08414100E64D77 /* AppDelegate.swift */; };
 		34DA41EB1E08414100E64D77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34DA41E91E08414100E64D77 /* Main.storyboard */; };
 		34DA41ED1E08414100E64D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34DA41EC1E08414100E64D77 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 		34C4B4F21E08593100536AB7 /* HomeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		34C4B4F51E0877E000536AB7 /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
 		34C4B4F71E0879D100536AB7 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		34C4B4FA1E087CD800536AB7 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		34C4B4FC1E087CFA00536AB7 /* ViewCreatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCreatable.swift; sourceTree = "<group>"; };
 		34DA41E21E08414100E64D77 /* RandomNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DA41E51E08414100E64D77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34DA41EA1E08414100E64D77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +129,15 @@
 			name = NotificationView;
 			sourceTree = "<group>";
 		};
+		34C4B4F91E087C8300536AB7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				34C4B4FA1E087CD800536AB7 /* Color.swift */,
+				34C4B4FC1E087CFA00536AB7 /* ViewCreatable.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		34DA41D91E08414100E64D77 = {
 			isa = PBXGroup;
 			children = (
@@ -147,8 +160,9 @@
 				34C4B4E11E0848F600536AB7 /* Model */,
 				34C4B4D81E08479200536AB7 /* View */,
 				34DA41F91E08417500E64D77 /* Storyboard */,
-				34DA41F81E08416D00E64D77 /* Resources */,
+				34C4B4F91E087C8300536AB7 /* Util */,
 				34C4B4E61E08575600536AB7 /* Libraries */,
+				34DA41F81E08416D00E64D77 /* Resources */,
 				34DA41F71E08415A00E64D77 /* Supporting Files */,
 			);
 			path = RandomNotification;
@@ -259,7 +273,9 @@
 				34C4B4F31E08593100536AB7 /* HomeDelegate.swift in Sources */,
 				34C4B4E51E08558000536AB7 /* HomeDataSource.swift in Sources */,
 				34C4B4EF1E0857E100536AB7 /* NibCreatable.swift in Sources */,
+				34C4B4FB1E087CD800536AB7 /* Color.swift in Sources */,
 				34C4B4DA1E08479E00536AB7 /* HomeController.swift in Sources */,
+				34C4B4FD1E087CFA00536AB7 /* ViewCreatable.swift in Sources */,
 				34C4B4F01E0857E100536AB7 /* Reusable.swift in Sources */,
 				34DA41E61E08414100E64D77 /* AppDelegate.swift in Sources */,
 				34C4B4E81E08576600536AB7 /* Just.swift in Sources */,

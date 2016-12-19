@@ -18,6 +18,7 @@ final class HomeController : UIViewController {
     
     fileprivate let dataSource = HomeDataSource()
     fileprivate let delegate = HomeDelegate()
+    fileprivate let notificationView = NotificationView.makeXib()
 }
 
 // MARK: - Life Cycle -
