@@ -1,11 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0OU-5F-bYC">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="aoD-h9-zfu">
+            <objects>
+                <viewController id="yHj-TS-mzX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jaQ-if-S8v"/>
+                        <viewControllerLayoutGuide type="bottom" id="BvH-Wy-emL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tu4-bV-7yk">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione um Tema para receber uma notificação com foto 🖼" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUo-Mb-fUw">
+                                <rect key="frame" x="20" y="20" width="280" height="90"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h6x-X8-MDf">
+                                <rect key="frame" x="0.0" y="181" width="320" height="323"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-fm-5dj">
+                                <rect key="frame" x="251" y="130" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Imagem em preto e branco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ysH-OJ-GCj">
+                                <rect key="frame" x="20" y="134" width="216" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h6x-X8-MDf" firstAttribute="leading" secondItem="Tu4-bV-7yk" secondAttribute="leading" id="0Ow-cr-4AW"/>
+                            <constraint firstItem="dhb-fm-5dj" firstAttribute="trailing" secondItem="lUo-Mb-fUw" secondAttribute="trailing" id="24F-qh-Ijs"/>
+                            <constraint firstAttribute="trailing" secondItem="lUo-Mb-fUw" secondAttribute="trailing" constant="20" id="3gx-ef-gmL"/>
+                            <constraint firstItem="ysH-OJ-GCj" firstAttribute="centerY" secondItem="dhb-fm-5dj" secondAttribute="centerY" id="3oc-XE-HPB"/>
+                            <constraint firstItem="BvH-Wy-emL" firstAttribute="top" secondItem="h6x-X8-MDf" secondAttribute="bottom" id="8ne-rk-bFn"/>
+                            <constraint firstAttribute="trailing" secondItem="h6x-X8-MDf" secondAttribute="trailing" id="CLD-eQ-Vey"/>
+                            <constraint firstItem="lUo-Mb-fUw" firstAttribute="leading" secondItem="Tu4-bV-7yk" secondAttribute="leading" constant="20" id="T2b-i0-QbY"/>
+                            <constraint firstItem="ysH-OJ-GCj" firstAttribute="leading" secondItem="lUo-Mb-fUw" secondAttribute="leading" id="abN-VY-bYG"/>
+                            <constraint firstItem="lUo-Mb-fUw" firstAttribute="centerX" secondItem="Tu4-bV-7yk" secondAttribute="centerX" id="oTj-mD-JDj"/>
+                            <constraint firstItem="dhb-fm-5dj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ysH-OJ-GCj" secondAttribute="trailing" constant="15" id="oyq-LE-4UF"/>
+                            <constraint firstItem="lUo-Mb-fUw" firstAttribute="top" secondItem="jaQ-if-S8v" secondAttribute="bottom" constant="20" id="scS-wq-s0w"/>
+                            <constraint firstItem="dhb-fm-5dj" firstAttribute="top" secondItem="lUo-Mb-fUw" secondAttribute="bottom" constant="20" id="w6i-fO-I3n"/>
+                            <constraint firstItem="h6x-X8-MDf" firstAttribute="top" secondItem="dhb-fm-5dj" secondAttribute="bottom" constant="20" id="xfC-dw-SsR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="b9P-wZ-QfJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9VW-E8-uTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823.125" y="165.8450704225352"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eNP-PH-asU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0OU-5F-bYC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="uHB-Sf-xYX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.16862745098039217" green="0.51764705882352935" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yHj-TS-mzX" kind="relationship" relationship="rootViewController" id="78O-C4-kxH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rXn-B1-tar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="68" y="166.8665667166417"/>
+        </scene>
+    </scenes>
 </document>
