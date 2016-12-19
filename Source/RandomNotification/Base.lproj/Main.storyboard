@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="aoD-h9-zfu">
             <objects>
-                <viewController id="yHj-TS-mzX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeController" id="yHj-TS-mzX" customClass="HomeController" customModule="RandomNotification" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jaQ-if-S8v"/>
                         <viewControllerLayoutGuide type="bottom" id="BvH-Wy-emL"/>
@@ -59,6 +59,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="b9P-wZ-QfJ"/>
+                    <connections>
+                        <outlet property="isGraySwitch" destination="dhb-fm-5dj" id="TQC-Le-cHH"/>
+                        <outlet property="tableView" destination="h6x-X8-MDf" id="0rZ-Mu-6lF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VW-E8-uTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
