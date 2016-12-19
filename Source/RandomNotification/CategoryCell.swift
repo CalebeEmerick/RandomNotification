@@ -14,6 +14,15 @@ final class CategoryCell : UITableViewCell {
     @IBOutlet fileprivate weak var name: UILabel!
     
     var category: Category? { didSet { updateUI() } }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        super.accessoryType = selected ? .checkmark : .none
+    }
+    override var isSelected: Bool {
+        get { return super.isSelected }
+        set { setSelected(newValue, animated: true) }
+    }
 }
 
 extension CategoryCell {
@@ -24,7 +33,7 @@ extension CategoryCell {
         
         set(category: category)
     }
-    
+
     private func set(category: Category) {
         
         DispatchQueue.main.async {
