@@ -13,7 +13,11 @@ final class HomeDataSource : NSObject {
     fileprivate let categories: [Category]
     
     override init() {
-        categories = []
+        
+        categories = [
+            .abstract, .city, .people, .transport, .animals, .food, .nature,
+            .business, .nightlife, .sports, .cats, .fashion, .technics
+        ]
         super.init()
     }
 }
@@ -27,8 +31,11 @@ extension HomeDataSource : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let cell: CategoryCell =
-//        
-//        return cell
+        let cell: CategoryCell = tableView.dequeueReusableCell(for: indexPath)
+        let category = categories[indexPath.row]
+        
+        cell.category = category
+        
+        return cell
     }
 }

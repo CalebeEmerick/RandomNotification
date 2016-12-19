@@ -8,82 +8,73 @@
 
 import Foundation
 
-struct Category {
+enum Category {
     
-    let theme: Theme
-    let picture: String
-}
-
-extension Category {
+    case abstract, city, people, transport, animals, food, nature, business, nightlife, sports, cats, fashion, technics
     
-    enum Theme {
+    var name: String {
         
-        case abstract, city, people, transport, animals, food, nature, business, nightlife, sports, cats, fashion, technics
-        
-        var name: String {
+        switch self {
             
-            switch self {
-                
-            case .abstract:
-                return "Abstrato"
-            case .city:
-                return "Cidade"
-            case .people:
-                return "Pessoas"
-            case .transport:
-                return "Transporte"
-            case .animals:
-                return "Animais"
-            case .food:
-                return "Comida"
-            case .nature:
-                return "Natureza"
-            case .business:
-                return "Negócios"
-            case .nightlife:
-                return "Vida Noturna"
-            case .sports:
-                return "Esportes"
-            case .cats:
-                return "Gatos"
-            case .fashion:
-                return "Moda"
-            case .technics:
-                return "Tecnologia"
-            }
+        case .abstract:
+            return "Abstrato"
+        case .city:
+            return "Cidade"
+        case .people:
+            return "Pessoas"
+        case .transport:
+            return "Transporte"
+        case .animals:
+            return "Animais"
+        case .food:
+            return "Comida"
+        case .nature:
+            return "Natureza"
+        case .business:
+            return "Negócios"
+        case .nightlife:
+            return "Vida Noturna"
+        case .sports:
+            return "Esportes"
+        case .cats:
+            return "Gatos"
+        case .fashion:
+            return "Moda"
+        case .technics:
+            return "Tecnologia"
         }
+    }
+    
+    var image: String {
         
-        var image: String {
+        switch self {
             
-            switch self {
-                
-            case .abstract:
-                return "abstract"
-            case .city:
-                return "city"
-            case .people:
-                return "people"
-            case .transport:
-                return "transport"
-            case .animals:
-                return "animals"
-            case .food:
-                return "food"
-            case .nature:
-                return "nature"
-            case .business:
-                return "business"
-            case .nightlife:
-                return "nightlife"
-            case .sports:
-                return "sports"
-            case .cats:
-                return "cats"
-            case .fashion:
-                return "fashion"
-            case .technics:
-                return "technics"
-            }
+        case .abstract:
+            return "abstract"
+        case .city:
+            return "city"
+        case .people:
+            return "people"
+        case .transport:
+            return "transport"
+        case .animals:
+            return "animals"
+        case .food:
+            return "food"
+        case .nature:
+            return "nature"
+        case .business:
+            return "business"
+        case .nightlife:
+            return "nightlife"
+        case .sports:
+            return "sports"
+        case .cats:
+            return "cats"
+        case .fashion:
+            return "fashion"
+        case .technics:
+            return "technics"
         }
     }
 }
