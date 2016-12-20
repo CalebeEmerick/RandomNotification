@@ -73,6 +73,7 @@
                         <outlet property="isGraySwitch" destination="dhb-fm-5dj" id="TQC-Le-cHH"/>
                         <outlet property="separatorHeight" destination="EWM-wS-842" id="tib-Ml-sOg"/>
                         <outlet property="tableView" destination="h6x-X8-MDf" id="0rZ-Mu-6lF"/>
+                        <outlet property="tableViewBottomConstraint" destination="8ne-rk-bFn" id="dUt-9l-FjO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VW-E8-uTn" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,13 +10,19 @@ import UIKit
 
 final class HomeDelegate : NSObject {
 
-    
+    var categorySelected: ((Category) -> Void)?
+    fileprivate var category: Category?
 }
 
 extension HomeDelegate : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else { return }
+        guard let category = cell.category else { return }
+        guard self.category != category else { return }
         
+        self.categorySelected?(category)
+        self.category = category
     }
 }

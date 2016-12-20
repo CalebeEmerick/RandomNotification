@@ -12,14 +12,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NotificationView" customModule="RandomNotification" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jr-0P-Bwe">
-                    <rect key="frame" x="15" y="91.5" width="61" height="44"/>
+                    <rect key="frame" x="15" y="57" width="68" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="2KZ-ra-R9r"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Cancelar">
                         <color key="titleColor" red="0.87058823529411766" green="0.20784313725490194" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -27,23 +28,12 @@
                         <action selector="cancelAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="T1H-WL-gya"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enviar notificação da categoria:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0M-EX-ctX">
-                    <rect key="frame" x="15" y="15" width="239.5" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HK-Wn-dzj">
-                    <rect key="frame" x="15" y="50.5" width="76.5" height="21"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                    <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiB-Xa-NWi">
-                    <rect key="frame" x="125" y="91.5" width="180" height="44"/>
+                    <rect key="frame" x="125" y="56" width="180" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="9ef-8T-0pc"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Enviar Notificação" backgroundImage="blue-background">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -54,18 +44,31 @@
                         <action selector="sendNotification:" destination="iN0-l3-epB" eventType="touchUpInside" id="QkU-yY-OEL"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo da categoria:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0M-EX-ctX">
+                    <rect key="frame" x="15" y="15" width="139" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HK-Wn-dzj">
+                    <rect key="frame" x="174" y="15" width="131" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="2HK-Wn-dzj" firstAttribute="leading" secondItem="H0M-EX-ctX" secondAttribute="leading" id="AJ7-HR-Tco"/>
+                <constraint firstItem="fiB-Xa-NWi" firstAttribute="trailing" secondItem="2HK-Wn-dzj" secondAttribute="trailing" id="1nL-Cz-8GV"/>
+                <constraint firstItem="8Jr-0P-Bwe" firstAttribute="leading" secondItem="H0M-EX-ctX" secondAttribute="leading" id="80g-FS-F6Y"/>
                 <constraint firstItem="H0M-EX-ctX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="Blx-kx-ShV"/>
-                <constraint firstItem="8Jr-0P-Bwe" firstAttribute="top" secondItem="2HK-Wn-dzj" secondAttribute="bottom" constant="20" id="EcT-SU-QcX"/>
                 <constraint firstItem="fiB-Xa-NWi" firstAttribute="height" secondItem="8Jr-0P-Bwe" secondAttribute="height" id="JEt-ze-fM3"/>
+                <constraint firstItem="8Jr-0P-Bwe" firstAttribute="top" secondItem="H0M-EX-ctX" secondAttribute="bottom" constant="21" id="Mfz-ro-xje"/>
+                <constraint firstItem="2HK-Wn-dzj" firstAttribute="leading" secondItem="H0M-EX-ctX" secondAttribute="trailing" constant="20" id="O0L-11-fIB"/>
                 <constraint firstItem="fiB-Xa-NWi" firstAttribute="baseline" secondItem="8Jr-0P-Bwe" secondAttribute="baseline" id="SEE-me-Rwb"/>
+                <constraint firstAttribute="trailing" secondItem="2HK-Wn-dzj" secondAttribute="trailing" constant="15" id="WKj-0v-cbU"/>
                 <constraint firstItem="H0M-EX-ctX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="aFu-wD-nbw"/>
-                <constraint firstItem="8Jr-0P-Bwe" firstAttribute="leading" secondItem="2HK-Wn-dzj" secondAttribute="leading" id="bNc-Fi-BPM"/>
-                <constraint firstItem="2HK-Wn-dzj" firstAttribute="top" secondItem="H0M-EX-ctX" secondAttribute="bottom" constant="15" id="k4I-hg-3yD"/>
-                <constraint firstAttribute="trailing" secondItem="fiB-Xa-NWi" secondAttribute="trailing" constant="15" id="wQc-OR-MhX"/>
+                <constraint firstItem="2HK-Wn-dzj" firstAttribute="baseline" secondItem="H0M-EX-ctX" secondAttribute="baseline" id="ye1-eQ-GmB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -73,7 +76,7 @@
                 <outlet property="categoryName" destination="2HK-Wn-dzj" id="lr8-tS-9Oo"/>
                 <outlet property="notificationButton" destination="fiB-Xa-NWi" id="fFT-bj-73q"/>
             </connections>
-            <point key="canvasLocation" x="35" y="82"/>
+            <point key="canvasLocation" x="35" y="64"/>
         </view>
     </objects>
     <resources>
