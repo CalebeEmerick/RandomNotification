@@ -27,6 +27,12 @@ final class CategoryCell : UITableViewCell {
 
 extension CategoryCell {
     
+    func deselectItem() {
+        
+        super.isSelected = false
+        super.accessoryType = .none
+    }
+    
     fileprivate func updateUI() {
         
         guard let category = category else { return }

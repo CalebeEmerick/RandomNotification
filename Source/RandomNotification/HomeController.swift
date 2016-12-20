@@ -22,6 +22,7 @@ final class HomeController : UIViewController {
     fileprivate let notificationView = NotificationView.makeXib()
     fileprivate var bottomConstraint: NSLayoutConstraint!
     fileprivate var category: Category?
+    fileprivate var lastIndexPathSelected: IndexPath?
 }
 
 // MARK: - Life Cycle -
@@ -58,10 +59,13 @@ extension HomeController {
     
     private func setupCallbacks() {
         
-        delegate.categorySelected = { [unowned self] category in
+        delegate.categorySelected = { [unowned self] (category, indexPath) in
+            self.category = category
+            self.lastIndexPathSelected = indexPath
             self.setNotificationView(with: category)
         }
         notificationView.cancelDidTap = {
+            self.deselectItem()
             self.hideNotificationView()
         }
         notificationView.sendDidTap = {
@@ -71,7 +75,6 @@ extension HomeController {
     
     private func setNotificationView(with category: Category) {
         
-        self.category = category
         self.notificationView.category = category
         self.showNotificationViewIfNeeded()
     }
@@ -111,5 +114,12 @@ extension HomeController {
         bottomConstraint.constant = height
         tableViewBottomConstraint.constant = height == 0 ? notificationView.bounds.height : 0
         UIView.animate(withDuration: 0.3) { self.view.layoutIfNeeded() }
+    }
+    
+    private func deselectItem() {
+        
+        guard let indexPath = lastIndexPathSelected else { return }
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }

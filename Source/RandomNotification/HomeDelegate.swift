@@ -10,7 +10,7 @@ import UIKit
 
 final class HomeDelegate : NSObject {
 
-    var categorySelected: ((Category) -> Void)?
+    var categorySelected: ((Category, IndexPath) -> Void)?
     fileprivate var category: Category?
 }
 
@@ -22,7 +22,7 @@ extension HomeDelegate : UITableViewDelegate {
         guard let category = cell.category else { return }
         guard self.category != category else { return }
         
-        self.categorySelected?(category)
+        self.categorySelected?(category, indexPath)
         self.category = category
     }
 }
