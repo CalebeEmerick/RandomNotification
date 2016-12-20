@@ -69,7 +69,14 @@ extension HomeController {
             self.hideNotificationView()
         }
         notificationView.sendDidTap = {
-            
+            NotificationPermission.shared.requestPermission { [weak self] isSuccessful in
+                if isSuccessful {
+                    
+                }
+                else {
+                    self?.showAlertToAllowNotification()
+                }
+            }
         }
     }
     
@@ -121,5 +128,19 @@ extension HomeController {
         guard let indexPath = lastIndexPathSelected else { return }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    private func showAlertToAllowNotification() {
+        
+        let alert = UIAlertController(title: "Notificação", message: "Você não permitiu notificações. Deseja habilitar agora?", preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { _ in }
+        let allow = UIAlertAction(title: "Habilitar Agora", style: .default) { _ in
+            NotificationPermission.shared.openAppSettings() }
+        
+        alert.addAction(cancel)
+        alert.addAction(allow)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
