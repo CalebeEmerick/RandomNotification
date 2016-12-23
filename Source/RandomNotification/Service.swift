@@ -10,15 +10,58 @@ import UIKit
 
 struct Service {
     
-    private let url = "http://lorempixel.com/index.php?generator=1&x=640&y=480&cat="
+    private let url = "http://lorempixel.com/"
     
-    func getImage(from category: Category, completion: @escaping (UIImage?) -> Void) {
+    func getImage(from category: Category, isGrayScale: Bool, completion: @escaping (UIImage?) -> Void) {
         
-        let endPoint = "\(url)\(category.imageUrl)"
-        
-        ImageDownloader.shared.download(from: endPoint) { image in
+        let endPoint = makeUrl(from: category.imageUrl, isGrayScale: isGrayScale)
+        getImageUrl(from: endPoint) { result in
             
-            completion(image)
+            let imageUrl = "\(self.url)\(result)"
+            
+            ImageDownloader.shared.download(from: imageUrl) { image in
+                
+                completion(image)
+            }
         }
+    }
+    
+    private func getImageUrl(from url: String, completion: @escaping (String) -> Void) {
+        
+        Just.get(url) { result in
+            
+            guard let data = result.content else { return }
+            guard let resultString = String(data: data, encoding: .utf8) else { return }
+            let imageUrl = self.formatString(from: resultString)
+            
+            completion(imageUrl)
+        }
+    }
+    
+    private func formatString(from string: String) -> String {
+        
+        let newString = string.components(separatedBy: "\"")
+        let stringFormatted = newString[1]
+        
+        return stringFormatted
+    }
+    
+    private func makeUrl(from category: String, isGrayScale: Bool) -> String {
+        
+        let grayScale = convertToInt(bool: isGrayScale)
+        let newUrl = "\(url)index.php?generator=1&x=640&y=480&"
+        let category = "\(newUrl)cat=\(category)"
+        let finalUrl = "\(category)&gray=\(grayScale)"
+        
+        print(finalUrl)
+        
+        return finalUrl
+    }
+    
+    private func convertToInt(bool: Bool) -> Int {
+        
+        if bool { return 1 }
+        
+        return 0
     }
 }

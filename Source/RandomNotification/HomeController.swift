@@ -21,10 +21,11 @@ final class HomeController : UIViewController {
     fileprivate let dataSource = HomeDataSource()
     fileprivate let delegate = HomeDelegate()
     fileprivate let notificationView = NotificationView.makeXib()
+    fileprivate var category: Category?
+    fileprivate var presenter: HomePresenter?
+    fileprivate var notification: Notification?
     fileprivate var bottomConstraint: NSLayoutConstraint!
     fileprivate var lastIndexPathSelected: IndexPath?
-    fileprivate var category: Category?
-    fileprivate var notification: Notification?
 }
 
 // MARK: - Life Cycle -
@@ -49,6 +50,7 @@ extension HomeController {
         setShadowForNotificationView()
         setupCallbacks()
         notification = Notification(controller: self)
+        presenter = HomePresenter(view: self)
         separatorHeight.constant = 0.5
     }
     
@@ -73,14 +75,7 @@ extension HomeController {
         }
         notificationView.sendDidTap = {
             NotificationPermission.shared.requestPermission { [weak self] success in
-                if success {
-
-                    guard let category = self?.category else { return }
-                    self?.notification?.show(from: category)
-                }
-                else {
-                    self?.showAlertToAllowNotification()
-                }
+                self?.shouldShowNotification(with: success)
             }
         }
     }
@@ -147,6 +142,43 @@ extension HomeController {
         alert.addAction(allow)
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func shouldShowNotification(with success: Bool) {
+        
+        if success {
+            
+            guard let category = self.category else { return }
+            let isGrayScale = isGraySwitch.isOn
+            self.presenter?.showNotification(from: category, isGrayScale: isGrayScale)
+        }
+        else {
+            self.showAlertToAllowNotification()
+        }
+    }
+}
+
+extension HomeController : HomeView {
+    
+    func showNotification(from category: Category, with image: UIImage) {
+        
+        notification?.show(from: category, with: image)
+    }
+    
+    func lockUI() {
+        
+        tableView.allowsSelection = false
+        isGraySwitch.isUserInteractionEnabled = false
+    }
+    
+    func showLoading() {
+        
+        notificationView.showLoading()
+    }
+    
+    func hideLoading() {
+        
+        notificationView.stopLoading()
     }
 }
 

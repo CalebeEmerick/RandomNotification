@@ -19,8 +19,8 @@ final class NotificationView : UIView {
         cancelDidTap?()
     }
     @IBAction private func sendNotification(_ sender: UIButton) {
-        toggleSendButtonAnimation()
-//        sendDidTap?()
+//        toggleSendButtonAnimation()
+        sendDidTap?()
     }
     
     fileprivate enum ButtonState { case loading, stopped }
@@ -41,6 +41,26 @@ extension NotificationView {
 }
 
 extension NotificationView {
+    
+    func showLoading() {
+        
+        DispatchQueue.main.async {
+            self.notificationButton.isEnabled = false
+            self.notificationButton.setTitle("", for: .disabled)
+            self.activityIndicator.startAnimating()
+            self.buttonState = .loading
+        }
+    }
+    
+    func stopLoading() {
+        
+        DispatchQueue.main.async {
+            self.notificationButton.isEnabled = true
+            self.notificationButton.setTitle("Enviar Notificação", for: .normal)
+            self.activityIndicator.stopAnimating()
+            self.buttonState = .stopped
+        }
+    }
     
     fileprivate func updateCategoryName() {
         
@@ -96,21 +116,5 @@ extension NotificationView {
         
         categoryName.layer.add(animation, forKey: nil)
         categoryName.text = name
-    }
-    
-    private func showLoading() {
-        
-        notificationButton.isEnabled = false
-        notificationButton.setTitle("", for: .disabled)
-        activityIndicator.startAnimating()
-        buttonState = .loading
-    }
-    
-    private func stopLoading() {
-        
-        notificationButton.isEnabled = true
-        notificationButton.setTitle("Enviar Notificação", for: .normal)
-        activityIndicator.stopAnimating()
-        buttonState = .stopped
     }
 }

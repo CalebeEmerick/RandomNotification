@@ -40,6 +40,7 @@ extension ImageDownloader {
         Just.get(url) { result in
             
             DispatchQueue.main.async {
+                
                 guard let data = result.content else {
                     completion(nil)
                     return

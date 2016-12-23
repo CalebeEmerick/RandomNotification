@@ -18,11 +18,17 @@ final class Notification : NSObject {
         self.controller = controller
     }
     
-    func show(from category: Category) {
+    func show(from category: Category, with image: UIImage) {
         
+        RFileManager.shared.save(image: image)
         content.title = category.nameFormatted
-        content.body = "agora vai"
+        content.body = "Testing Rich Notifications with random images 😄"
         content.sound = .default()
+        
+        let imageUrl = RFileManager.shared.retrieveImageUrl()
+        guard let attachment = try? UNNotificationAttachment(identifier: NotificationIdentifier.request, url: imageUrl, options: [:]) else { return }
+        
+        content.attachments = [attachment]
         
         makeRequest(with: content)
     }
@@ -38,24 +44,3 @@ final class Notification : NSObject {
         }
     }
 }
-
-
-//    private func makeUrl(from image: UIImage?) -> URL {
-
-//        guard let path = Bundle.main.path(forResource: "", ofType: <#T##String?#>)
-
-//        if let path = Bundle.main.path(forResource: "monkey", ofType: "png") {
-//            let url = URL(fileURLWithPath: path)
-//
-//            do {
-//                let attachment = try UNNotificationAttachment(identifier: "sampleImage", url: url, options: nil)
-//                content.attachments = [attachment]
-//            } catch {
-//                print("attachment not found.")
-//            }
-//        }
-
-//        return URL(string: "")!
-//    }
-
-//        guard let attachment = try? UNNotificationAttachment(identifier: "", url: <#T##URL#>, options: [:]) else { return }
