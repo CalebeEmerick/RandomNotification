@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 // MARK: - Variables & Outlets -
 
@@ -71,7 +72,9 @@ extension HomeController {
         notificationView.sendDidTap = {
             NotificationPermission.shared.requestPermission { [weak self] isSuccessful in
                 if isSuccessful {
-                    
+
+                    let notification = Notification(controller: self)
+                    notification.show()
                 }
                 else {
                     self?.showAlertToAllowNotification()
@@ -142,5 +145,13 @@ extension HomeController {
         alert.addAction(allow)
         
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension HomeController : UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
+        
+        completionHandler([.alert, .badge, .sound])
     }
 }

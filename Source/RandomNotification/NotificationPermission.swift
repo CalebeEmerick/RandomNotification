@@ -47,7 +47,7 @@ extension NotificationPermission {
     
     private func tryRequest(completion: @escaping (Bool) -> Void) {
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
             
             guard error == nil else {
