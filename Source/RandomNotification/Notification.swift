@@ -11,13 +11,9 @@ import UserNotifications
 
 final class Notification : NSObject {
     
-    private weak var controller: UNUserNotificationCenterDelegate?
     private let content = UNMutableNotificationContent()
-    
-    init(controller: UNUserNotificationCenterDelegate?) {
-        self.controller = controller
-    }
-    
+    private let delegate = NotificationDelegate()
+
     func show(from category: Category, with image: UIImage) {
         
         RFileManager.shared.save(image: image)
@@ -37,7 +33,7 @@ final class Notification : NSObject {
         
         let request = UNNotificationRequest(identifier: NotificationIdentifier.request, content: content, trigger: nil)
         
-        UNUserNotificationCenter.current().delegate = controller
+        UNUserNotificationCenter.current().delegate = delegate
         UNUserNotificationCenter.current().add(request) { error in
             
             if let error = error { print(error.localizedDescription) }

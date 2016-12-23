@@ -20,10 +20,10 @@ final class HomeController : UIViewController {
     
     fileprivate let dataSource = HomeDataSource()
     fileprivate let delegate = HomeDelegate()
+    fileprivate let notification = Notification()
     fileprivate let notificationView = NotificationView.makeXib()
     fileprivate var category: Category?
     fileprivate var presenter: HomePresenter?
-    fileprivate var notification: Notification?
     fileprivate var bottomConstraint: NSLayoutConstraint!
     fileprivate var lastIndexPathSelected: IndexPath?
 }
@@ -49,7 +49,6 @@ extension HomeController {
         makeConstrainsForNotificationView()
         setShadowForNotificationView()
         setupCallbacks()
-        notification = Notification(controller: self)
         presenter = HomePresenter(view: self)
         separatorHeight.constant = 0.5
     }
@@ -166,7 +165,7 @@ extension HomeController : HomeView {
     
     func showNotification(from category: Category, with image: UIImage) {
         
-        notification?.show(from: category, with: image)
+        notification.show(from: category, with: image)
     }
     
     func lockUI() {
@@ -204,13 +203,5 @@ extension HomeController : HomeView {
         alert.addAction(tryAgain)
         
         self.present(alert, animated: true, completion: nil)
-    }
-}
-
-extension HomeController : UNUserNotificationCenterDelegate {
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
-        
-        completionHandler([.alert, .badge, .sound])
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34082CCB1E0DD37A007E02F0 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34082CCA1E0DD37A007E02F0 /* NotificationDelegate.swift */; };
 		34404F031E0AE1FB0085AFC2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F021E0AE1FB0085AFC2 /* Notification.swift */; };
 		34404F2E1E0B11CA0085AFC2 /* NotificationIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F2D1E0B11CA0085AFC2 /* NotificationIdentifier.swift */; };
 		34404F5E1E0D68090085AFC2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F5D1E0D68090085AFC2 /* Service.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34082CCA1E0DD37A007E02F0 /* NotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		34404F021E0AE1FB0085AFC2 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		34404F0A1E0AFC970085AFC2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		34404F0C1E0AFC970085AFC2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -209,6 +211,7 @@
 				34C4B4FF1E09B12A00536AB7 /* NotificationPermission.swift */,
 				34404F021E0AE1FB0085AFC2 /* Notification.swift */,
 				34404F2D1E0B11CA0085AFC2 /* NotificationIdentifier.swift */,
+				34082CCA1E0DD37A007E02F0 /* NotificationDelegate.swift */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				34C4B4EF1E0857E100536AB7 /* NibCreatable.swift in Sources */,
 				34404F681E0D6DC70085AFC2 /* HomeView.swift in Sources */,
 				34404F031E0AE1FB0085AFC2 /* Notification.swift in Sources */,
+				34082CCB1E0DD37A007E02F0 /* NotificationDelegate.swift in Sources */,
 				34404F5E1E0D68090085AFC2 /* Service.swift in Sources */,
 				34404F2E1E0B11CA0085AFC2 /* NotificationIdentifier.swift in Sources */,
 				34C4B4FB1E087CD800536AB7 /* Color.swift in Sources */,

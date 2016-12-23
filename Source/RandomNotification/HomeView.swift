@@ -10,10 +10,10 @@ import UIKit
 
 protocol HomeView : class {
     
-    func showNotification(from category: Category, with image: UIImage)
     func lockUI()
     func unlockUI()
     func showLoading()
     func hideLoading()
+    func showNotification(from category: Category, with image: UIImage)
     func showAlert(with message: String)
 }
