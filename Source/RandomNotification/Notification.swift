@@ -20,7 +20,7 @@ final class Notification : NSObject {
     
     func show(from category: Category) {
         
-        content.title = category.name
+        content.title = category.nameFormatted
         content.body = "agora vai"
         content.sound = .default()
         

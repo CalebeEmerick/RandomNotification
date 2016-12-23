@@ -46,7 +46,7 @@ extension NotificationView {
         
         guard let category = category else { return }
         
-        self.animateNameChange(category.name)
+        self.animateNameChange(category.nameFormatted)
     }
     
     fileprivate func notificationButtonStyle() {

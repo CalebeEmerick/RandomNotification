@@ -12,7 +12,7 @@ enum Category {
     
     case abstract, city, people, transport, animals, food, nature, business, nightlife, sports, cats, fashion, technics
     
-    var name: String {
+    var nameFormatted: String {
         
         switch self {
             
@@ -45,7 +45,7 @@ enum Category {
         }
     }
     
-    var image: String {
+    var imageUrl: String {
         
         switch self {
             

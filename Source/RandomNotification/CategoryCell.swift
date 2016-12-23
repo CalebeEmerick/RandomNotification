@@ -44,8 +44,8 @@ extension CategoryCell {
         
         DispatchQueue.main.async {
             
-            self.picture.image = UIImage(named: category.image)
-            self.name.text = category.name
+            self.picture.image = UIImage(named: category.imageUrl)
+            self.name.text = category.nameFormatted
         }
     }
 }
