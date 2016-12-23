@@ -22,6 +22,7 @@ extension NotificationDelegate : UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
         
-        
+        print("View Publication")
+        completionHandler()
     }
 }

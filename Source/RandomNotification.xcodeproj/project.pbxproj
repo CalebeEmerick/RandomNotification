@@ -210,8 +210,8 @@
 			children = (
 				34C4B4FF1E09B12A00536AB7 /* NotificationPermission.swift */,
 				34404F021E0AE1FB0085AFC2 /* Notification.swift */,
-				34404F2D1E0B11CA0085AFC2 /* NotificationIdentifier.swift */,
 				34082CCA1E0DD37A007E02F0 /* NotificationDelegate.swift */,
+				34404F2D1E0B11CA0085AFC2 /* NotificationIdentifier.swift */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
