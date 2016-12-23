@@ -16,8 +16,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jr-0P-Bwe">
-                    <rect key="frame" x="15" y="57" width="68" height="44"/>
+                    <rect key="frame" x="15" y="57" width="90" height="44"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="90" id="0id-sL-oQ1"/>
                         <constraint firstAttribute="height" constant="44" id="2KZ-ra-R9r"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -73,6 +74,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="cancelButton" destination="8Jr-0P-Bwe" id="hM2-Gq-SV6"/>
                 <outlet property="categoryName" destination="2HK-Wn-dzj" id="lr8-tS-9Oo"/>
                 <outlet property="notificationButton" destination="fiB-Xa-NWi" id="fFT-bj-73q"/>
             </connections>

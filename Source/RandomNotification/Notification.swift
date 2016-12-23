@@ -12,21 +12,18 @@ import UserNotifications
 final class Notification : NSObject {
     
     private weak var controller: UNUserNotificationCenterDelegate?
-    private let delegate = NotificationDelegate()
+    private let content = UNMutableNotificationContent()
     
     init(controller: UNUserNotificationCenterDelegate?) {
         self.controller = controller
     }
     
-    func show() {
+    func show(from category: Category) {
         
-        let content = UNMutableNotificationContent()
-        
-        content.title = "Random N."
-        content.subtitle = "Teste de notificação"
-        content.body = "blá blá blá blá blá blá..."
+        content.title = category.name
+        content.body = "agora vai"
         content.sound = .default()
-
+        
         makeRequest(with: content)
     }
     
@@ -40,14 +37,16 @@ final class Notification : NSObject {
             if let error = error { print(error.localizedDescription) }
         }
     }
-    
-    private func makeUrl(from image: UIImage?) -> URL {
-        
+}
+
+
+//    private func makeUrl(from image: UIImage?) -> URL {
+
 //        guard let path = Bundle.main.path(forResource: "", ofType: <#T##String?#>)
-        
+
 //        if let path = Bundle.main.path(forResource: "monkey", ofType: "png") {
 //            let url = URL(fileURLWithPath: path)
-//            
+//
 //            do {
 //                let attachment = try UNNotificationAttachment(identifier: "sampleImage", url: url, options: nil)
 //                content.attachments = [attachment]
@@ -55,9 +54,8 @@ final class Notification : NSObject {
 //                print("attachment not found.")
 //            }
 //        }
-        
-        return URL(string: "")!
-    }
-}
+
+//        return URL(string: "")!
+//    }
 
 //        guard let attachment = try? UNNotificationAttachment(identifier: "", url: <#T##URL#>, options: [:]) else { return }

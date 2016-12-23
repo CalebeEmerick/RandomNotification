@@ -12,6 +12,7 @@ final class NotificationView : UIView {
     
     @IBOutlet fileprivate weak var categoryName: UILabel!
     @IBOutlet fileprivate weak var notificationButton: UIButton!
+    @IBOutlet fileprivate weak var cancelButton: UIButton!
     @IBAction private func cancelAction(_ sender: UIButton) { cancelDidTap?() }
     @IBAction private func sendNotification(_ sender: UIButton) { sendDidTap?() }
     
@@ -26,6 +27,7 @@ extension NotificationView {
         super.awakeFromNib()
         
         notificationButtonStyle()
+        cancelButtonStyle()
     }
 }
 
@@ -42,6 +44,14 @@ extension NotificationView {
         
         notificationButton.layer.cornerRadius = 5
         notificationButton.clipsToBounds = true
+    }
+    
+    fileprivate func cancelButtonStyle() {
+        
+        cancelButton.layer.borderWidth = 1
+        cancelButton.layer.borderColor = Color(hexString: "#DE352E").cgColor
+        cancelButton.layer.cornerRadius = 5
+        cancelButton.clipsToBounds = true
     }
     
     private func animateNameChange(_ name: String) {

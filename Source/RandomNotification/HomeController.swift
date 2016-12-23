@@ -22,8 +22,9 @@ final class HomeController : UIViewController {
     fileprivate let delegate = HomeDelegate()
     fileprivate let notificationView = NotificationView.makeXib()
     fileprivate var bottomConstraint: NSLayoutConstraint!
-    fileprivate var category: Category?
     fileprivate var lastIndexPathSelected: IndexPath?
+    fileprivate var category: Category?
+    fileprivate var notification: Notification?
 }
 
 // MARK: - Life Cycle -
@@ -47,6 +48,7 @@ extension HomeController {
         makeConstrainsForNotificationView()
         setShadowForNotificationView()
         setupCallbacks()
+        notification = Notification(controller: self)
         separatorHeight.constant = 0.5
     }
     
@@ -70,11 +72,11 @@ extension HomeController {
             self.hideNotificationView()
         }
         notificationView.sendDidTap = {
-            NotificationPermission.shared.requestPermission { [weak self] isSuccessful in
-                if isSuccessful {
+            NotificationPermission.shared.requestPermission { [weak self] success in
+                if success {
 
-                    let notification = Notification(controller: self)
-                    notification.show()
+                    guard let category = self?.category else { return }
+                    self?.notification?.show(from: category)
                 }
                 else {
                     self?.showAlertToAllowNotification()
