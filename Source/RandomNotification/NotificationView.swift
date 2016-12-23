@@ -19,7 +19,6 @@ final class NotificationView : UIView {
         cancelDidTap?()
     }
     @IBAction private func sendNotification(_ sender: UIButton) {
-//        toggleSendButtonAnimation()
         sendDidTap?()
     }
     
@@ -81,17 +80,6 @@ extension NotificationView {
         cancelButton.layer.borderColor = Color(hexString: "#DE352E").cgColor
         cancelButton.layer.cornerRadius = 5
         cancelButton.clipsToBounds = true
-    }
-    
-    fileprivate func toggleSendButtonAnimation() {
-        
-        switch buttonState {
-
-        case .loading:
-            stopLoading()
-        case .stopped:
-            showLoading()
-        }
     }
     
     fileprivate func stopLoadingIfNeeded() {

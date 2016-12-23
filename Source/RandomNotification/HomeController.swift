@@ -62,6 +62,13 @@ extension HomeController {
         tableView.rowHeight = 60
     }
     
+    fileprivate func showNotification() {
+        
+        guard let category = self.category else { return }
+        let isGrayScale = isGraySwitch.isOn
+        self.presenter?.showNotification(from: category, isGrayScale: isGrayScale)
+    }
+    
     private func setupCallbacks() {
         
         delegate.categorySelected = { [unowned self] (category, indexPath) in
@@ -147,13 +154,10 @@ extension HomeController {
     private func shouldShowNotification(with success: Bool) {
         
         if success {
-            
-            guard let category = self.category else { return }
-            let isGrayScale = isGraySwitch.isOn
-            self.presenter?.showNotification(from: category, isGrayScale: isGrayScale)
+            showNotification()
         }
         else {
-            self.showAlertToAllowNotification()
+            showAlertToAllowNotification()
         }
     }
 }
@@ -171,6 +175,12 @@ extension HomeController : HomeView {
         isGraySwitch.isUserInteractionEnabled = false
     }
     
+    func unlockUI() {
+        
+        tableView.allowsSelection = true
+        isGraySwitch.isUserInteractionEnabled = true
+    }
+    
     func showLoading() {
         
         notificationView.showLoading()
@@ -179,6 +189,21 @@ extension HomeController : HomeView {
     func hideLoading() {
         
         notificationView.stopLoading()
+    }
+    
+    func showAlert(with message: String) {
+        
+        let alert = UIAlertController(title: "Ooops!", message: message, preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { _ in }
+        let tryAgain = UIAlertAction(title: "Tentar Novamente", style: .default) { _ in
+            self.showNotification()
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(tryAgain)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

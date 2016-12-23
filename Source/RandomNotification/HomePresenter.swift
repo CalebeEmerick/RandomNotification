@@ -25,10 +25,16 @@ struct HomePresenter {
         service.getImage(from: category, isGrayScale: isGrayScale) { image in
             
             guard let image = image else {
+                
+                self.homeView?.hideLoading()
+                self.homeView?.unlockUI()
+                self.homeView?.showAlert(with: "Não foi possível carregar a imagem 🙁. Verifique sua conexão e tente novamente.")
                 return
             }
             
             self.homeView?.showNotification(from: category, with: image)
+            self.homeView?.hideLoading()
+            self.homeView?.unlockUI()
         }
     }
 }

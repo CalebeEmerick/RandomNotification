@@ -40,6 +40,8 @@ struct Service {
     
     private func formatString(from string: String) -> String {
         
+        guard !string.isEmpty else { return "" }
+        
         let newString = string.components(separatedBy: "\"")
         let stringFormatted = newString[1]
         
@@ -52,8 +54,6 @@ struct Service {
         let newUrl = "\(url)index.php?generator=1&x=640&y=480&"
         let category = "\(newUrl)cat=\(category)"
         let finalUrl = "\(category)&gray=\(grayScale)"
-        
-        print(finalUrl)
         
         return finalUrl
     }

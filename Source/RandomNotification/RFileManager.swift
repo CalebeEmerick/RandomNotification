@@ -29,12 +29,9 @@ extension RFileManager {
         let url = directory.appendingPathComponent(imageName)
         
         do {
-            
             try data.write(to: url)
-            print("successful saved image")
         }
         catch let error {
-            
             print(error.localizedDescription)
         }
         
@@ -43,7 +40,6 @@ extension RFileManager {
     func retrieveImageUrl() -> URL {
         
         let imageUrl = URL(fileURLWithPath: directory.absoluteString).appendingPathComponent(imageName)
-        print(imageUrl)
         return imageUrl
     }
     
