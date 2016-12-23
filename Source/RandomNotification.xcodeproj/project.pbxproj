@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34082CCB1E0DD37A007E02F0 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34082CCA1E0DD37A007E02F0 /* NotificationDelegate.swift */; };
+		34082CCE1E0DE5DB007E02F0 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34082CCD1E0DE5DB007E02F0 /* DetailController.swift */; };
 		34404F031E0AE1FB0085AFC2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F021E0AE1FB0085AFC2 /* Notification.swift */; };
 		34404F2E1E0B11CA0085AFC2 /* NotificationIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F2D1E0B11CA0085AFC2 /* NotificationIdentifier.swift */; };
 		34404F5E1E0D68090085AFC2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F5D1E0D68090085AFC2 /* Service.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		34082CCA1E0DD37A007E02F0 /* NotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
+		34082CCD1E0DE5DB007E02F0 /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		34404F021E0AE1FB0085AFC2 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		34404F0A1E0AFC970085AFC2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		34404F0C1E0AFC970085AFC2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -93,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34082CCC1E0DE5CA007E02F0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				34082CCD1E0DE5DB007E02F0 /* DetailController.swift */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
 		34404F091E0AFC970085AFC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				34C4B4DB1E0847A200536AB7 /* Home */,
+				34082CCC1E0DE5CA007E02F0 /* Detail */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -407,6 +418,7 @@
 				34DA41E61E08414100E64D77 /* AppDelegate.swift in Sources */,
 				34404F631E0D6B8F0085AFC2 /* CacheItem.swift in Sources */,
 				34C4B4E81E08576600536AB7 /* Just.swift in Sources */,
+				34082CCE1E0DE5DB007E02F0 /* DetailController.swift in Sources */,
 				34C4B4DF1E08486E00536AB7 /* CategoryCell.swift in Sources */,
 				34C4B5001E09B12A00536AB7 /* NotificationPermission.swift in Sources */,
 				34C4B4EE1E0857E100536AB7 /* CollectionViewReusable.swift in Sources */,
