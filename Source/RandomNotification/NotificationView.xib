@@ -21,7 +21,7 @@
                         <constraint firstAttribute="width" constant="90" id="0id-sL-oQ1"/>
                         <constraint firstAttribute="height" constant="44" id="2KZ-ra-R9r"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="Cancelar">
                         <color key="titleColor" red="0.87058823529411766" green="0.20784313725490194" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -38,9 +38,7 @@
                     <state key="normal" title="Enviar Notificação" backgroundImage="blue-background">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" title="Enviar Notificação" backgroundImage="button-border">
-                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="disabled" backgroundImage="blue-background"/>
                     <connections>
                         <action selector="sendNotification:" destination="iN0-l3-epB" eventType="touchUpInside" id="QkU-yY-OEL"/>
                     </connections>
@@ -57,6 +55,10 @@
                     <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5DK-rk-Ios">
+                    <rect key="frame" x="205" y="68" width="20" height="20"/>
+                    <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -67,13 +69,16 @@
                 <constraint firstItem="8Jr-0P-Bwe" firstAttribute="top" secondItem="H0M-EX-ctX" secondAttribute="bottom" constant="21" id="Mfz-ro-xje"/>
                 <constraint firstItem="2HK-Wn-dzj" firstAttribute="leading" secondItem="H0M-EX-ctX" secondAttribute="trailing" constant="20" id="O0L-11-fIB"/>
                 <constraint firstItem="fiB-Xa-NWi" firstAttribute="baseline" secondItem="8Jr-0P-Bwe" secondAttribute="baseline" id="SEE-me-Rwb"/>
+                <constraint firstItem="5DK-rk-Ios" firstAttribute="centerX" secondItem="fiB-Xa-NWi" secondAttribute="centerX" id="Swa-06-aUk"/>
                 <constraint firstAttribute="trailing" secondItem="2HK-Wn-dzj" secondAttribute="trailing" constant="15" id="WKj-0v-cbU"/>
+                <constraint firstItem="5DK-rk-Ios" firstAttribute="centerY" secondItem="fiB-Xa-NWi" secondAttribute="centerY" id="aBG-X5-N2A"/>
                 <constraint firstItem="H0M-EX-ctX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="aFu-wD-nbw"/>
                 <constraint firstItem="2HK-Wn-dzj" firstAttribute="baseline" secondItem="H0M-EX-ctX" secondAttribute="baseline" id="ye1-eQ-GmB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="activityIndicator" destination="5DK-rk-Ios" id="Bwq-rg-O1I"/>
                 <outlet property="cancelButton" destination="8Jr-0P-Bwe" id="hM2-Gq-SV6"/>
                 <outlet property="categoryName" destination="2HK-Wn-dzj" id="lr8-tS-9Oo"/>
                 <outlet property="notificationButton" destination="fiB-Xa-NWi" id="fFT-bj-73q"/>
@@ -83,6 +88,5 @@
     </objects>
     <resources>
         <image name="blue-background" width="5" height="5"/>
-        <image name="button-border" width="180" height="44"/>
     </resources>
 </document>

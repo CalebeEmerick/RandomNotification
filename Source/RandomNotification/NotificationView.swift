@@ -13,9 +13,18 @@ final class NotificationView : UIView {
     @IBOutlet fileprivate weak var categoryName: UILabel!
     @IBOutlet fileprivate weak var notificationButton: UIButton!
     @IBOutlet fileprivate weak var cancelButton: UIButton!
-    @IBAction private func cancelAction(_ sender: UIButton) { cancelDidTap?() }
-    @IBAction private func sendNotification(_ sender: UIButton) { sendDidTap?() }
+    @IBOutlet fileprivate weak var activityIndicator: UIActivityIndicatorView!
+    @IBAction private func cancelAction(_ sender: UIButton) {
+        stopLoadingIfNeeded()
+        cancelDidTap?()
+    }
+    @IBAction private func sendNotification(_ sender: UIButton) {
+        toggleSendButtonAnimation()
+//        sendDidTap?()
+    }
     
+    fileprivate enum ButtonState { case loading, stopped }
+    fileprivate var buttonState: ButtonState = .stopped
     var cancelDidTap: (() -> Void)?
     var sendDidTap: (() -> Void)?
     var category: Category? { didSet { updateCategoryName() } }
@@ -54,6 +63,24 @@ extension NotificationView {
         cancelButton.clipsToBounds = true
     }
     
+    fileprivate func toggleSendButtonAnimation() {
+        
+        switch buttonState {
+
+        case .loading:
+            stopLoading()
+        case .stopped:
+            showLoading()
+        }
+    }
+    
+    fileprivate func stopLoadingIfNeeded() {
+        
+        guard buttonState == .loading else { return }
+        
+        stopLoading()
+    }
+    
     private func animateNameChange(_ name: String) {
         
         animate(name: name)
@@ -70,5 +97,20 @@ extension NotificationView {
         categoryName.layer.add(animation, forKey: nil)
         categoryName.text = name
     }
-
+    
+    private func showLoading() {
+        
+        notificationButton.isEnabled = false
+        notificationButton.setTitle("", for: .disabled)
+        activityIndicator.startAnimating()
+        buttonState = .loading
+    }
+    
+    private func stopLoading() {
+        
+        notificationButton.isEnabled = true
+        notificationButton.setTitle("Enviar Notificação", for: .normal)
+        activityIndicator.stopAnimating()
+        buttonState = .stopped
+    }
 }

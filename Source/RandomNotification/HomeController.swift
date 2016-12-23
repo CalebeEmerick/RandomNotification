@@ -137,7 +137,7 @@ extension HomeController {
     
     private func showAlertToAllowNotification() {
         
-        let alert = UIAlertController(title: "Notificação", message: "Você não permitiu notificações. Deseja habilitar agora?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Notificação", message: "Você não permitiu notificações 😕. Deseja habilitar agora?", preferredStyle: .alert)
         
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { _ in }
         let allow = UIAlertAction(title: "Habilitar Agora", style: .default) { _ in
