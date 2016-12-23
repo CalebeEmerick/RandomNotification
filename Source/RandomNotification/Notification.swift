@@ -18,18 +18,16 @@ final class Notification : NSObject {
     func show(from category: Category, with image: UIImage) {
         
         RFileManager.shared.save(image: image)
+        let attachment = makeAttachment()
+        let categoryAction = makeCategory()
+        
         content.title = category.nameFormatted
         content.body = "Testing Rich Notifications with random images 😄"
         content.sound = .default()
         content.categoryIdentifier = NotificationIdentifier.category
-        
-        let imageUrl = RFileManager.shared.retrieveImageUrl()
-        let category = UNNotificationCategory(identifier: NotificationIdentifier.category, actions: [viewPostAction], intentIdentifiers: [NotificationIdentifier.category], options: [])
-        guard let attachment = try? UNNotificationAttachment(identifier: NotificationIdentifier.request, url: imageUrl, options: [:]) else { return }
-        
         content.attachments = [attachment]
         
-        makeRequest(with: content, action: category)
+        makeRequest(with: content, action: categoryAction)
     }
     
     private func makeRequest(with content: UNMutableNotificationContent, action category: UNNotificationCategory) {
@@ -42,5 +40,23 @@ final class Notification : NSObject {
             
             if let error = error { print(error.localizedDescription) }
         }
+    }
+    
+    private func makeAttachment() -> UNNotificationAttachment {
+        
+        let imageUrl = RFileManager.shared.retrieveImageUrl()
+        guard let attachment = try? UNNotificationAttachment(identifier: NotificationIdentifier.request, url: imageUrl, options: [:]) else {
+            
+            fatalError("It was not possible to create an attachment.")
+        }
+        
+        return attachment
+    }
+    
+    private func makeCategory() -> UNNotificationCategory {
+        
+        let category = UNNotificationCategory(identifier: NotificationIdentifier.category, actions: [viewPostAction], intentIdentifiers: [NotificationIdentifier.category], options: [])
+        
+        return category
     }
 }
