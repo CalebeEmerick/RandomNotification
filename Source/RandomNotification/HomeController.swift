@@ -46,10 +46,12 @@ extension HomeController {
     
     fileprivate func setupController() {
         
+        navigationBarStyle()
         makeConstrainsForNotificationView()
         setShadowForNotificationView()
         setupCallbacks()
         presenter = HomePresenter(view: self)
+        notification.controller = self
         separatorHeight.constant = 0.5
     }
     
@@ -158,6 +160,14 @@ extension HomeController {
         else {
             showAlertToAllowNotification()
         }
+    }
+    
+    private func navigationBarStyle() {
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "back")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back")
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
 

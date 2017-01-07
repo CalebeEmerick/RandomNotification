@@ -8,7 +8,7 @@
 		<true/>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>pt</string>
+	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>R.Notification</string>
 	<key>CFBundleExecutable</key>

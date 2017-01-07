@@ -12,5 +12,6 @@ struct NotificationIdentifier {
     
     static let request = "RequestIdentifier"
     static let viewPost = "ViewPost"
+    static let dismiss = "Dismiss"
     static let category = "Category"
 }

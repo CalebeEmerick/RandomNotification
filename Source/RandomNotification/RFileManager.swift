@@ -14,6 +14,13 @@ final class RFileManager {
     static let shared = RFileManager()
     fileprivate let imageName = "image.jpg"
     
+    fileprivate(set) var currentImage: UIImage?
+    
+    lazy var imageUrl: URL = {
+        
+       return shared.directory.appendingPathComponent(shared.imageName)
+    }()
+    
     fileprivate lazy var directory: URL = {
         
         return shared.getDocumentsDirectory()
@@ -26,10 +33,9 @@ extension RFileManager {
     
         guard let data = UIImageJPEGRepresentation(image, 1) else { return }
         
-        let url = directory.appendingPathComponent(imageName)
-        
         do {
-            try data.write(to: url)
+            self.currentImage = image
+            try data.write(to: imageUrl)
         }
         catch let error {
             print(error.localizedDescription)
@@ -42,6 +48,28 @@ extension RFileManager {
         let imageUrl = URL(fileURLWithPath: directory.absoluteString).appendingPathComponent(imageName)
         return imageUrl
     }
+    
+//    func getImage(from url: URL) -> UIImage? {
+//        
+//        _ = imageUrl.startAccessingSecurityScopedResource()
+//        let data = try? Data(contentsOf: imageUrl)
+//        print(imageUrl)
+//        
+//        return nil
+//        
+//        do {
+//            let data = try Data(contentsOf: imageUrl)
+//            return UIImage(data: data)
+//        }
+//        catch let error {
+//            print(error.localizedDescription)
+//        }
+//        
+//        guard let imageData = try? Data(contentsOf: url) else { return nil }
+//        let image = UIImage(data: imageData)
+//        
+//        return image
+//    }
     
     fileprivate func getDocumentsDirectory() -> URL {
         

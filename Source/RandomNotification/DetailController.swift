@@ -12,15 +12,32 @@ final class DetailController : UIViewController {
 
     @IBOutlet fileprivate weak var picture: UIImageView!
     
-    var image: UIImage? { didSet { updateUI() } }
+    fileprivate var identifier: String { return "contents" }
+    var image: UIImage?
 }
 
 extension DetailController {
     
-    fileprivate func updateUI() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        guard let image = image else { return }
+        updateImage()
+    }
+}
+
+extension DetailController {
+
+    fileprivate func updateImage() {
+        DispatchQueue.main.async {
+            
+            let fade = CABasicAnimation(keyPath: self.identifier)
+            
+            fade.fromValue = self.picture.image
+            fade.toValue = self.image
+            fade.duration = 0.3
         
-        self.picture.image = image
+            self.picture.layer.add(fade, forKey: self.identifier)
+            self.picture.image = self.image
+        }
     }
 }

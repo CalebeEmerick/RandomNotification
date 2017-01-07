@@ -107,7 +107,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Categoria" id="LvJ-cd-IO1"/>
                     <connections>
-                        <outlet property="picture" destination="ZnP-VP-YqZ" id="vVc-iA-6IM"/>
+                        <outlet property="picture" destination="ZnP-VP-YqZ" id="AAy-Xs-hzL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2H-o7-hgp" userLabel="First Responder" sceneMemberID="firstResponder"/>

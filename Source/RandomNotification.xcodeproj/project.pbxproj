@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		34082CCB1E0DD37A007E02F0 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34082CCA1E0DD37A007E02F0 /* NotificationDelegate.swift */; };
 		34082CCE1E0DE5DB007E02F0 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34082CCD1E0DE5DB007E02F0 /* DetailController.swift */; };
+		34082CD01E0DE6D5007E02F0 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34082CCF1E0DE6D5007E02F0 /* Storyboard.swift */; };
+		34082CD21E0DE71F007E02F0 /* ViewControllerReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34082CD11E0DE71F007E02F0 /* ViewControllerReusable.swift */; };
+		34082CD51E0DE75F007E02F0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34082CD41E0DE75F007E02F0 /* HomeRouter.swift */; };
 		34404F031E0AE1FB0085AFC2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F021E0AE1FB0085AFC2 /* Notification.swift */; };
 		34404F2E1E0B11CA0085AFC2 /* NotificationIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F2D1E0B11CA0085AFC2 /* NotificationIdentifier.swift */; };
 		34404F5E1E0D68090085AFC2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34404F5D1E0D68090085AFC2 /* Service.swift */; };
@@ -42,6 +45,9 @@
 /* Begin PBXFileReference section */
 		34082CCA1E0DD37A007E02F0 /* NotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		34082CCD1E0DE5DB007E02F0 /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		34082CCF1E0DE6D5007E02F0 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		34082CD11E0DE71F007E02F0 /* ViewControllerReusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerReusable.swift; sourceTree = "<group>"; };
+		34082CD41E0DE75F007E02F0 /* HomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		34404F021E0AE1FB0085AFC2 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		34404F0A1E0AFC970085AFC2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		34404F0C1E0AFC970085AFC2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -101,6 +107,14 @@
 				34082CCD1E0DE5DB007E02F0 /* DetailController.swift */,
 			);
 			name = Detail;
+			sourceTree = "<group>";
+		};
+		34082CD31E0DE73C007E02F0 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				34082CD41E0DE75F007E02F0 /* HomeRouter.swift */,
+			);
+			name = Router;
 			sourceTree = "<group>";
 		};
 		34404F091E0AFC970085AFC2 /* Frameworks */ = {
@@ -212,6 +226,7 @@
 				34C4B4FA1E087CD800536AB7 /* Color.swift */,
 				34C4B4FC1E087CFA00536AB7 /* ViewCreatable.swift */,
 				34404F691E0D84C10085AFC2 /* RFileManager.swift */,
+				34082CD11E0DE71F007E02F0 /* ViewControllerReusable.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -253,6 +268,7 @@
 				34404F641E0D6D420085AFC2 /* Presenter */,
 				34C4B4D81E08479200536AB7 /* View */,
 				34DA41F91E08417500E64D77 /* Storyboard */,
+				34082CD31E0DE73C007E02F0 /* Router */,
 				34C4B4FE1E09B10400536AB7 /* Notification */,
 				34C4B4F91E087C8300536AB7 /* Util */,
 				34C4B4E61E08575600536AB7 /* Libraries */,
@@ -284,6 +300,7 @@
 			children = (
 				34DA41E91E08414100E64D77 /* Main.storyboard */,
 				34DA41EE1E08414100E64D77 /* LaunchScreen.storyboard */,
+				34082CCF1E0DE6D5007E02F0 /* Storyboard.swift */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -404,9 +421,12 @@
 				34C4B4F11E0857E100536AB7 /* TableViewReusable.swift in Sources */,
 				34C4B4F31E08593100536AB7 /* HomeDelegate.swift in Sources */,
 				34C4B4E51E08558000536AB7 /* HomeDataSource.swift in Sources */,
+				34082CD01E0DE6D5007E02F0 /* Storyboard.swift in Sources */,
 				34C4B4EF1E0857E100536AB7 /* NibCreatable.swift in Sources */,
 				34404F681E0D6DC70085AFC2 /* HomeView.swift in Sources */,
 				34404F031E0AE1FB0085AFC2 /* Notification.swift in Sources */,
+				34082CD21E0DE71F007E02F0 /* ViewControllerReusable.swift in Sources */,
+				34082CD51E0DE75F007E02F0 /* HomeRouter.swift in Sources */,
 				34082CCB1E0DD37A007E02F0 /* NotificationDelegate.swift in Sources */,
 				34404F5E1E0D68090085AFC2 /* Service.swift in Sources */,
 				34404F2E1E0B11CA0085AFC2 /* NotificationIdentifier.swift in Sources */,

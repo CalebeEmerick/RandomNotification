@@ -11,8 +11,10 @@ import UserNotifications
 
 final class Notification : NSObject {
     
+    weak var controller: UIViewController?
     private let content = UNMutableNotificationContent()
     private let viewPostAction = UNNotificationAction(identifier: NotificationIdentifier.viewPost, title: "Ver Publicação", options: [])
+    private let dismissAction = UNNotificationAction(identifier: NotificationIdentifier.dismiss, title: "Descartar", options: [.destructive])
     private let delegate = NotificationDelegate()
 
     func show(from category: Category, with image: UIImage) {
@@ -34,6 +36,7 @@ final class Notification : NSObject {
         
         let request = UNNotificationRequest(identifier: NotificationIdentifier.request, content: content, trigger: nil)
         
+        delegate.controller = controller
         UNUserNotificationCenter.current().delegate = delegate
         UNUserNotificationCenter.current().setNotificationCategories([category])
         UNUserNotificationCenter.current().add(request) { error in
@@ -55,7 +58,7 @@ final class Notification : NSObject {
     
     private func makeCategory() -> UNNotificationCategory {
         
-        let category = UNNotificationCategory(identifier: NotificationIdentifier.category, actions: [viewPostAction], intentIdentifiers: [NotificationIdentifier.category], options: [])
+        let category = UNNotificationCategory(identifier: NotificationIdentifier.category, actions: [viewPostAction, dismissAction], intentIdentifiers: [], options: [])
         
         return category
     }
