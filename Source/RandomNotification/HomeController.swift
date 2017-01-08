@@ -70,6 +70,12 @@ extension HomeController {
         self.presenter?.showNotification(from: category, isGrayScale: isGrayScale)
     }
     
+    fileprivate func hideNotification() {
+        
+        self.deselectItem()
+        self.hideNotificationView()
+    }
+    
     private func setupCallbacks() {
         
         delegate.categorySelected = { [unowned self] (category, indexPath) in
@@ -78,8 +84,7 @@ extension HomeController {
             self.setNotificationView(with: category)
         }
         notificationView.cancelDidTap = {
-            self.deselectItem()
-            self.hideNotificationView()
+            self.hideNotification()
         }
         notificationView.sendDidTap = {
             NotificationPermission.shared.requestPermission { [weak self] success in
@@ -126,16 +131,20 @@ extension HomeController {
     
     private func showHideNotificationView(with height: CGFloat) {
         
-        bottomConstraint.constant = height
-        tableViewBottomConstraint.constant = height == 0 ? notificationView.bounds.height : 0
-        UIView.animate(withDuration: 0.3) { self.view.layoutIfNeeded() }
+        DispatchQueue.main.async {
+            self.bottomConstraint.constant = height
+            self.tableViewBottomConstraint.constant = height == 0 ? self.notificationView.bounds.height : 0
+            UIView.animate(withDuration: 0.3) { self.view.layoutIfNeeded() }
+        }
     }
     
     private func deselectItem() {
         
         guard let indexPath = lastIndexPathSelected else { return }
         
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        DispatchQueue.main.async {
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     private func showAlertToAllowNotification() {
@@ -176,6 +185,7 @@ extension HomeController : HomeView {
     func showNotification(from category: Category, with image: UIImage) {
         
         notification.show(from: category, with: image)
+        hideNotification()
     }
     
     func lockUI() {
