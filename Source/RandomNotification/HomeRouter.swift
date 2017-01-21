@@ -16,10 +16,12 @@ struct HomeRouter {
         self.controller = controller
     }
     
-    func showDetail(with image: UIImage?) {
+    func showDetail(with image: UIImage?, title: String) {
         
         let detailController = Storyboard.shared.createViewController(by: DetailController.self)
+        
         detailController.image = image
+        detailController.title = title
         
         controller?.show(detailController, sender: nil)
     }

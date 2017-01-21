@@ -32,14 +32,15 @@ extension NotificationDelegate : UNUserNotificationCenterDelegate {
             completionHandler()
             return
         }
-
+    
         guard let attachment = response.notification.request.content.attachments.first else { return }
         guard attachment.url.startAccessingSecurityScopedResource() else { return }
         
         let router = HomeRouter(pass: controller)
         let image = RFileManager.shared.currentImage
+        let title = response.notification.request.content.title
 
-        router.showDetail(with: image)
+        router.showDetail(with: image, title: title)
         completionHandler()
     }
 }
